@@ -4,7 +4,7 @@ import java.util.List;
 public class Workshop<T extends NewCar> {
     private String name;
     private int maxCapacity; //maximum capacity of cars in the shop
-    private ArrayList<Car> carsInWorkshop;
+    private ArrayList<NewCar> carsInWorkshop;
     private List<String> typeCar;
 
     public Workshop(String name, int maxCapacity, List<String> typeCar) {
@@ -14,7 +14,7 @@ public class Workshop<T extends NewCar> {
         this.typeCar = typeCar;
     }
 
-    public boolean canAdd(Car car) {
+    public boolean canAdd(NewCar car) {
         if (typeCar.contains(car.modelName) && carsInWorkshop.size() <= maxCapacity) {
             return true;
         } else {
@@ -22,7 +22,7 @@ public class Workshop<T extends NewCar> {
         }
     }
 
-    public void addCar(Car car) {
+    public void addCar(NewCar car) {
         if (canAdd(car)) {
             carsInWorkshop.add(car);
             System.out.println("Car has been added to the workshop: " + name);
@@ -31,7 +31,7 @@ public class Workshop<T extends NewCar> {
         }
     }
 
-    public void unloadCar(Car car) {
+    public void unloadCar(NewCar car) {
         if (carsInWorkshop.contains(car)) {
             carsInWorkshop.remove(car);
         } else {
